@@ -4,560 +4,443 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Admin Dashboard - Rater Tara</title>
+  <title>RATER TARA – VIDEO APP</title>
 
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <meta name="description" content="Rater Tara Video App">
+  <meta name="theme-color" content="#002e2e">
+
+  <link rel="stylesheet" href="./css/style.css">
 
   <style>
     * {
-      margin: 0;
-      padding: 0;
       box-sizing: border-box;
     }
 
     body {
-      min-height: 100vh;
-      font-family: Arial, "Noto Sans Bengali", sans-serif;
-      color: #fff;
-
+      margin: 0;
       background:
-        radial-gradient(
-          circle at top left,
-          #064f4f 0%,
-          #002e2e 35%,
-          #001719 100%
-        );
+        radial-gradient(circle at top, #004b4b 0%, #002e2e 38%, #00181b 100%);
+      color: #fff;
+      font-family: Arial, "Noto Sans Bengali", sans-serif;
+      min-height: 100vh;
     }
 
-    .admin-app {
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .app {
       width: 100%;
-      max-width: 1100px;
+      max-width: 650px;
       margin: auto;
-      padding-bottom: 40px;
+      min-height: 100vh;
+      padding-bottom: 90px;
     }
 
-    /* =====================================================
-       HEADER
-       ===================================================== */
+    /* ================= HEADER ================= */
 
-    .header {
+    .topbar {
       position: sticky;
       top: 0;
       z-index: 100;
-
-      padding: 15px 18px;
+      padding: 14px 16px;
+      background: rgba(0, 25, 27, .88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
 
       display: flex;
       align-items: center;
       justify-content: space-between;
-
-      background: rgba(0, 25, 27, .92);
-
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-
-      border-bottom:
-        1px solid rgba(255,255,255,.08);
+      gap: 12px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 11px;
+      gap: 10px;
     }
 
-    .brand-icon {
-      width: 43px;
-      height: 43px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 13px;
-
-      color: #002e2e;
-
-      background:
-        linear-gradient(
-          135deg,
-          #00ffff,
-          #ffcc00
-        );
+    .logo {
+      width: 45px;
+      height: 45px;
+      border-radius: 14px;
+      object-fit: cover;
+      background: #004444;
+      border: 1px solid rgba(255,255,255,.12);
     }
 
-    .brand-title {
+    .brand-text h1 {
+      margin: 0;
       font-size: 18px;
-      font-weight: 900;
+      letter-spacing: .7px;
     }
 
-    .brand-subtitle {
-      margin-top: 3px;
-      color: #7da2a2;
+    .brand-text p {
+      margin: 3px 0 0;
       font-size: 11px;
+      color: #9becec;
     }
 
-    .header-actions {
+    .top-actions {
       display: flex;
-      gap: 8px;
+      gap: 7px;
     }
 
     .icon-btn {
-      width: 42px;
-      height: 42px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
+      width: 40px;
+      height: 40px;
       border: 1px solid rgba(255,255,255,.1);
-      border-radius: 50%;
-
+      border-radius: 13px;
+      background: rgba(255,255,255,.06);
       color: #fff;
-      background: rgba(255,255,255,.07);
-
-      text-decoration: none;
       cursor: pointer;
+      font-size: 18px;
     }
 
     .icon-btn:hover {
-      color: #00ffff;
+      background: rgba(255,255,255,.12);
     }
 
+    /* ================= HERO ================= */
 
-    /* =====================================================
-       ADMIN INFO
-       ===================================================== */
-
-    .admin-info {
-      margin: 18px 15px 0;
-      padding: 18px;
-
-      display: flex;
-      align-items: center;
-      gap: 14px;
-
-      border-radius: 20px;
+    .hero {
+      margin: 18px 14px 14px;
+      padding: 24px 20px;
+      border-radius: 24px;
 
       background:
-        rgba(255,255,255,.055);
+        linear-gradient(135deg,
+        rgba(0,255,255,.13),
+        rgba(255,204,0,.09));
 
-      border:
-        1px solid rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.1);
+      box-shadow: 0 18px 45px rgba(0,0,0,.25);
     }
 
-    .admin-avatar {
-      width: 55px;
-      height: 55px;
-
-      flex-shrink: 0;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 50%;
-
-      color: #002e2e;
-      background: #00ffff;
-
-      font-size: 23px;
-      font-weight: 900;
-    }
-
-    .admin-name {
-      font-size: 16px;
-      font-weight: 800;
-    }
-
-    .admin-email {
-      margin-top: 5px;
-      color: #82a5a5;
-      font-size: 12px;
-      word-break: break-word;
-    }
-
-    .admin-badge {
-      margin-left: auto;
-
-      padding: 7px 11px;
-
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 10px;
       border-radius: 20px;
-
-      color: #002e2e;
-      background: #ffcc00;
-
-      font-size: 10px;
-      font-weight: 900;
-    }
-
-
-    /* =====================================================
-       DASHBOARD GRID
-       ===================================================== */
-
-    .dashboard {
-      padding: 0 15px;
-    }
-
-    .section-title {
-      margin: 23px 3px 13px;
-
-      font-size: 18px;
-      font-weight: 900;
-    }
-
-    .section-title i {
-      color: #ffcc00;
-      margin-right: 7px;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns:
-        repeat(2, 1fr);
-
-      gap: 11px;
-    }
-
-    .stat-card {
-      min-height: 115px;
-
-      padding: 17px;
-
-      border-radius: 19px;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(0,82,82,.65),
-          rgba(0,38,40,.7)
-        );
-
-      border:
-        1px solid rgba(255,255,255,.07);
-    }
-
-    .stat-icon {
-      width: 38px;
-      height: 38px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 11px;
-
+      background: rgba(0,255,255,.1);
       color: #00ffff;
-      background: rgba(0,255,255,.08);
-    }
-
-    .stat-number {
-      margin-top: 10px;
-
-      font-size: 24px;
-      font-weight: 900;
-    }
-
-    .stat-label {
-      margin-top: 4px;
-
-      color: #7fa3a3;
-
       font-size: 11px;
+      font-weight: bold;
+      margin-bottom: 10px;
     }
 
-
-    /* =====================================================
-       QUICK ACTIONS
-       ===================================================== */
-
-    .actions-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(2, 1fr);
-
-      gap: 10px;
+    .hero h2 {
+      margin: 0;
+      font-size: 26px;
+      line-height: 1.25;
     }
 
-    .action {
-      min-height: 85px;
-
-      padding: 15px;
-
-      border-radius: 17px;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-
-      color: #fff;
-
-      background:
-        rgba(255,255,255,.055);
-
-      border:
-        1px solid rgba(255,255,255,.08);
-
-      text-decoration: none;
-
-      transition: .2s;
+    .hero h2 span {
+      color: #ffcc00;
     }
 
-    .action:hover {
-      transform: translateY(-2px);
-
-      border-color:
-        rgba(0,255,255,.25);
-    }
-
-    .action i {
-      margin-bottom: 9px;
-
-      color: #00ffff;
-
-      font-size: 20px;
-    }
-
-    .action span {
+    .hero p {
+      margin: 10px 0 0;
+      color: #b7d7d7;
       font-size: 13px;
-      font-weight: 700;
+      line-height: 1.6;
     }
 
+    /* ================= SEARCH ================= */
 
-    /* =====================================================
-       VIDEO TABLE
-       ===================================================== */
-
-    .video-list {
-      display: grid;
-      gap: 10px;
+    .search-wrap {
+      padding: 0 14px 10px;
     }
 
-    .video-row {
-      padding: 12px;
-
+    .search-box {
       display: flex;
-      gap: 12px;
       align-items: center;
+      gap: 9px;
 
+      padding: 13px 15px;
       border-radius: 16px;
 
-      background:
-        rgba(255,255,255,.05);
-
-      border:
-        1px solid rgba(255,255,255,.07);
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.09);
     }
 
-    .video-thumb {
-      width: 105px;
-      height: 62px;
+    .search-box span {
+      font-size: 18px;
+    }
 
-      flex-shrink: 0;
+    .search-box input {
+      width: 100%;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: #fff;
+      font-size: 14px;
+    }
 
+    .search-box input::placeholder {
+      color: #8ca9aa;
+    }
+
+    /* ================= SECTION ================= */
+
+    .section {
+      padding: 8px 14px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .section-head h3 {
+      margin: 0;
+      font-size: 17px;
+    }
+
+    .section-head a {
+      color: #00ffff;
+      font-size: 12px;
+    }
+
+    /* ================= CATEGORY ================= */
+
+    .categories {
+      display: flex;
+      gap: 9px;
+      overflow-x: auto;
+      padding-bottom: 5px;
+      scrollbar-width: none;
+    }
+
+    .categories::-webkit-scrollbar {
+      display: none;
+    }
+
+    .category {
+      flex: 0 0 auto;
+      padding: 9px 14px;
+      border-radius: 30px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.08);
+      color: #d9eeee;
+      font-size: 12px;
+    }
+
+    .category.active {
+      background: #ffcc00;
+      color: #002e2e;
+      font-weight: bold;
+    }
+
+    /* ================= VIDEO GRID ================= */
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .video-card {
       overflow: hidden;
-
-      border-radius: 10px;
-
-      background: #002222;
+      border-radius: 18px;
+      background: rgba(0,68,68,.72);
+      border: 1px solid rgba(255,255,255,.07);
+      box-shadow: 0 12px 28px rgba(0,0,0,.2);
+      transition: transform .2s ease;
     }
 
-    .video-thumb img {
+    .video-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .thumb-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #003737;
+    }
+
+    .thumb-wrap img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
-    .video-details {
-      min-width: 0;
-      flex: 1;
+    .play {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: rgba(0,0,0,.65);
+      border: 2px solid rgba(255,255,255,.75);
+      color: #fff;
+      font-size: 18px;
+      padding-left: 3px;
+    }
+
+    .video-info {
+      padding: 11px;
     }
 
     .video-title {
-      font-size: 13px;
-      font-weight: 800;
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.4;
 
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
-
       overflow: hidden;
     }
 
     .video-meta {
-      margin-top: 6px;
-
-      color: #7e9e9e;
-
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      gap: 5px;
+      color: #91b5b5;
       font-size: 10px;
     }
 
-    .status {
-      padding: 5px 8px;
-
-      flex-shrink: 0;
-
-      border-radius: 15px;
-
-      font-size: 9px;
-      font-weight: 800;
-    }
-
-    .status-published {
-      color: #002e2e;
-      background: #00ffff;
-    }
-
-    .status-pending {
-      color: #002e2e;
-      background: #ffcc00;
-    }
-
-    .status-rejected {
-      color: #fff;
-      background: #c52d2d;
-    }
-
-    .status-other {
-      color: #fff;
-      background: #456565;
-    }
-
-
-    /* =====================================================
-       LOADING
-       ===================================================== */
-
-    .loading {
-      padding: 50px 20px;
+    .loading,
+    .empty,
+    .error {
+      grid-column: 1 / -1;
       text-align: center;
-      color: #8eaaaa;
+      padding: 35px 15px;
+      color: #9ebcbc;
+      font-size: 13px;
     }
-
-    .loading i {
-      margin-bottom: 12px;
-      font-size: 30px;
-      color: #00ffff;
-    }
-
-
-    /* =====================================================
-       ERROR
-       ===================================================== */
 
     .error {
-      margin: 20px 15px;
-      padding: 20px;
+      color: #ffb4b4;
+    }
 
+    /* ================= BOTTOM NAV ================= */
+
+    .bottom-nav {
+      position: fixed;
+      z-index: 200;
+      left: 50%;
+      bottom: 10px;
+      transform: translateX(-50%);
+
+      width: min(620px, calc(100% - 20px));
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      padding: 8px;
+
+      background: rgba(0,25,27,.92);
+      backdrop-filter: blur(20px);
+
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 22px;
+
+      box-shadow: 0 15px 45px rgba(0,0,0,.45);
+    }
+
+    .nav-item {
+      padding: 8px 4px;
       text-align: center;
-
-      border-radius: 18px;
-
-      background:
-        rgba(255,50,50,.08);
-
-      border:
-        1px solid rgba(255,50,50,.2);
-
-      color: #ffb0b0;
+      border-radius: 15px;
+      color: #91b5b5;
+      font-size: 10px;
     }
 
-
-    /* =====================================================
-       RESPONSIVE
-       ===================================================== */
-
-    @media (min-width: 700px) {
-
-      .stats-grid {
-        grid-template-columns:
-          repeat(4, 1fr);
-      }
-
-      .actions-grid {
-        grid-template-columns:
-          repeat(4, 1fr);
-      }
-
-      .video-list {
-        grid-template-columns:
-          repeat(2, 1fr);
-      }
-
+    .nav-item .nav-icon {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 3px;
     }
+
+    .nav-item.active {
+      background: rgba(255,204,0,.12);
+      color: #ffcc00;
+    }
+
+    /* ================= RESPONSIVE ================= */
 
     @media (max-width: 420px) {
 
-      .brand-title {
-        font-size: 16px;
+      .hero h2 {
+        font-size: 22px;
       }
 
-      .admin-badge {
-        display: none;
+      .video-grid {
+        gap: 9px;
       }
 
-      .video-thumb {
-        width: 90px;
-        height: 55px;
+      .video-info {
+        padding: 9px;
       }
 
+      .video-title {
+        font-size: 12px;
+      }
+    }
+
+    @media (min-width: 700px) {
+
+      .video-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
   </style>
 </head>
 
-
 <body>
 
-<div class="admin-app">
+<div class="app">
 
+  <!-- ================= HEADER ================= -->
 
-  <!-- =====================================================
-       HEADER
-       ===================================================== -->
+  <header class="topbar">
 
-  <header class="header">
+    <a href="./index.html" class="brand">
 
-    <div class="brand">
+      <img
+        src="./images/logo.png"
+        class="logo"
+        alt="Rater Tara Logo"
+        onerror="this.style.display='none'"
+      >
 
-      <div class="brand-icon">
-        <i class="fa-solid fa-shield-halved"></i>
+      <div class="brand-text">
+        <h1>RATER TARA</h1>
+        <p>VIDEO APP</p>
       </div>
 
-      <div>
-        <div class="brand-title">
-          Rater Tara Admin
-        </div>
+    </a>
 
-        <div class="brand-subtitle">
-          Video Platform Control Panel
-        </div>
-      </div>
-
-    </div>
-
-
-    <div class="header-actions">
-
-      <a
-        href="../index.html"
-        class="icon-btn"
-        title="Home">
-
-        <i class="fa-solid fa-house"></i>
-
-      </a>
-
+    <div class="top-actions">
 
       <button
-        id="logoutBtn"
         class="icon-btn"
-        title="Logout">
+        onclick="location.href='./search.html'"
+        title="Search">
+        🔍
+      </button>
 
-        <i class="fa-solid fa-right-from-bracket"></i>
-
+      <button
+        class="icon-btn"
+        onclick="location.href='./profile.html'"
+        title="Profile">
+        👤
       </button>
 
     </div>
@@ -565,589 +448,319 @@
   </header>
 
 
+  <!-- ================= HERO ================= -->
 
-  <!-- =====================================================
-       ADMIN INFO
-       ===================================================== -->
+  <section class="hero">
 
-  <div
-    id="adminInfo"
-    class="admin-info"
-    style="display:none;">
-
-    <div
-      id="adminAvatar"
-      class="admin-avatar">
-      A
+    <div class="hero-badge">
+      🎬 PREMIUM VIDEO PLATFORM
     </div>
 
-    <div>
+    <h2>
+      আপনার পছন্দের ভিডিও
+      <span>এক জায়গায়</span>
+    </h2>
 
-      <div
-        id="adminName"
-        class="admin-name">
-        Admin
-      </div>
+    <p>
+      নতুন ও জনপ্রিয় ভিডিও খুঁজুন,
+      দেখুন এবং আপনার পছন্দের ভিডিও
+      Favorites-এ সংরক্ষণ করুন।
+    </p>
 
-      <div
-        id="adminEmail"
-        class="admin-email">
-        -
-      </div>
-
-    </div>
-
-    <div class="admin-badge">
-      ADMIN
-    </div>
-
-  </div>
+  </section>
 
 
+  <!-- ================= SEARCH ================= -->
 
-  <!-- =====================================================
-       LOADING
-       ===================================================== -->
+  <div class="search-wrap">
 
-  <div
-    id="loading"
-    class="loading">
+    <div class="search-box">
 
-    <i class="fa-solid fa-spinner fa-spin"></i>
+      <span>🔎</span>
 
-    <div>
-      Admin Dashboard লোড হচ্ছে...
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="ভিডিও খুঁজুন..."
+        autocomplete="off"
+      >
+
     </div>
 
   </div>
 
 
+  <!-- ================= CATEGORIES ================= -->
 
-  <!-- =====================================================
-       DASHBOARD
-       ===================================================== -->
+  <section class="section">
 
-  <main
-    id="dashboard"
-    class="dashboard"
-    style="display:none;">
+    <div class="section-head">
 
+      <h3>📂 ক্যাটাগরি</h3>
 
-    <!-- Statistics -->
-
-    <div class="section-title">
-      <i class="fa-solid fa-chart-line"></i>
-      Dashboard Overview
-    </div>
-
-
-    <div class="stats-grid">
-
-
-      <div class="stat-card">
-
-        <div class="stat-icon">
-          <i class="fa-solid fa-video"></i>
-        </div>
-
-        <div
-          id="totalVideos"
-          class="stat-number">
-          0
-        </div>
-
-        <div class="stat-label">
-          Total Videos
-        </div>
-
-      </div>
-
-
-      <div class="stat-card">
-
-        <div class="stat-icon">
-          <i class="fa-solid fa-circle-check"></i>
-        </div>
-
-        <div
-          id="publishedVideos"
-          class="stat-number">
-          0
-        </div>
-
-        <div class="stat-label">
-          Published
-        </div>
-
-      </div>
-
-
-      <div class="stat-card">
-
-        <div class="stat-icon">
-          <i class="fa-solid fa-clock"></i>
-        </div>
-
-        <div
-          id="pendingVideos"
-          class="stat-number">
-          0
-        </div>
-
-        <div class="stat-label">
-          Pending
-        </div>
-
-      </div>
-
-
-      <div class="stat-card">
-
-        <div class="stat-icon">
-          <i class="fa-solid fa-users"></i>
-        </div>
-
-        <div
-          id="totalUsers"
-          class="stat-number">
-          0
-        </div>
-
-        <div class="stat-label">
-          Users
-        </div>
-
-      </div>
-
-    </div>
-
-
-
-    <!-- =================================================
-         QUICK ACTIONS
-         ================================================= -->
-
-    <div class="section-title">
-      <i class="fa-solid fa-bolt"></i>
-      Quick Actions
-    </div>
-
-
-    <div class="actions-grid">
-
-
-      <a
-        href="../upload.html"
-        class="action">
-
-        <i class="fa-solid fa-cloud-arrow-up"></i>
-
-        <span>
-          Upload Video
-        </span>
-
-      </a>
-
-
-      <a
-        href="../index.html"
-        class="action">
-
-        <i class="fa-solid fa-globe"></i>
-
-        <span>
-          View Website
-        </span>
-
-      </a>
-
-
-      <a
-        href="../search.html"
-        class="action">
-
-        <i class="fa-solid fa-magnifying-glass"></i>
-
-        <span>
-          Search Videos
-        </span>
-
-      </a>
-
-
-      <a
-        href="../favorites.html"
-        class="action">
-
-        <i class="fa-solid fa-heart"></i>
-
-        <span>
-          Favorites
-        </span>
-
+      <a href="./categories.html">
+        সব দেখুন →
       </a>
 
     </div>
 
+    <div class="categories">
 
+      <button class="category active" data-category="all">
+        সব
+      </button>
 
-    <!-- =================================================
-         RECENT VIDEOS
-         ================================================= -->
+      <button class="category" data-category="Entertainment">
+        Entertainment
+      </button>
 
-    <div class="section-title">
-      <i class="fa-solid fa-clock-rotate-left"></i>
-      Recent Videos
+      <button class="category" data-category="Music">
+        Music
+      </button>
+
+      <button class="category" data-category="Sports">
+        Sports
+      </button>
+
+      <button class="category" data-category="News">
+        News
+      </button>
+
+      <button class="category" data-category="Education">
+        Education
+      </button>
+
     </div>
 
+  </section>
+
+
+  <!-- ================= VIDEOS ================= -->
+
+  <section class="section">
+
+    <div class="section-head">
+
+      <h3>🔥 Latest Videos</h3>
+
+      <a href="./hot-videos.html">
+        Hot Videos →
+      </a>
+
+    </div>
 
     <div
-      id="videoList"
-      class="video-list">
+      id="videoGrid"
+      class="video-grid">
+
+      <div class="loading">
+        ⏳ ভিডিও লোড হচ্ছে...
+      </div>
 
     </div>
 
-
-  </main>
+  </section>
 
 </div>
 
 
+<!-- ================= BOTTOM NAV ================= -->
 
-<!-- =====================================================
-     JAVASCRIPT
-     ===================================================== -->
+<nav class="bottom-nav">
+
+  <a
+    href="./index.html"
+    class="nav-item active">
+
+    <span class="nav-icon">🏠</span>
+    Home
+
+  </a>
+
+  <a
+    href="./categories.html"
+    class="nav-item">
+
+    <span class="nav-icon">📂</span>
+    Categories
+
+  </a>
+
+  <a
+    href="./favorites.html"
+    class="nav-item">
+
+    <span class="nav-icon">❤️</span>
+    Favorites
+
+  </a>
+
+  <a
+    href="./profile.html"
+    class="nav-item">
+
+    <span class="nav-icon">👤</span>
+    Profile
+
+  </a>
+
+</nav>
+
+
+<!-- ================= FIREBASE ================= -->
 
 <script type="module">
 
-  import {
-    auth,
-    db
-  } from "../js/firebase.js";
-
-
-  import {
-    onAuthStateChanged,
-    signOut
-  } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
-
+  import { db } from "./js/firebase.js";
 
   import {
     collection,
     getDocs,
     query,
+    where,
     orderBy,
     limit
   } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
 
 
-  const loading =
-    document.getElementById("loading");
+  const videoGrid =
+    document.getElementById("videoGrid");
 
-  const dashboard =
-    document.getElementById("dashboard");
+  const searchInput =
+    document.getElementById("searchInput");
 
-  const adminInfo =
-    document.getElementById("adminInfo");
+  const categoryButtons =
+    document.querySelectorAll(".category");
 
-  const adminName =
-    document.getElementById("adminName");
 
-  const adminEmail =
-    document.getElementById("adminEmail");
+  let allVideos = [];
+  let selectedCategory = "all";
 
-  const adminAvatar =
-    document.getElementById("adminAvatar");
 
+  // ========================================
+  // LOAD PUBLISHED VIDEOS
+  // ========================================
 
-  const totalVideos =
-    document.getElementById("totalVideos");
+  async function loadVideos() {
 
-  const publishedVideos =
-    document.getElementById("publishedVideos");
-
-  const pendingVideos =
-    document.getElementById("pendingVideos");
-
-  const totalUsers =
-    document.getElementById("totalUsers");
-
-  const videoList =
-    document.getElementById("videoList");
-
-
-  const logoutBtn =
-    document.getElementById("logoutBtn");
-
-
-
-  // =====================================================
-  // CHECK ADMIN
-  // =====================================================
-
-  onAuthStateChanged(
-    auth,
-    async (user) => {
-
-      if (!user) {
-
-        window.location.href =
-          "login.html";
-
-        return;
-      }
-
-
-      try {
-
-        const userQuery =
-          query(
-            collection(db, "users")
-          );
-
-
-        const usersSnapshot =
-          await getDocs(userQuery);
-
-
-        let currentAdmin = null;
-
-
-        usersSnapshot.forEach(
-          (docSnap) => {
-
-            if (
-              docSnap.id === user.uid
-            ) {
-
-              currentAdmin =
-                docSnap.data();
-
-            }
-
-          }
-        );
-
-
-        if (
-          !currentAdmin ||
-          currentAdmin.role !== "admin"
-        ) {
-
-          alert(
-            "আপনার Admin permission নেই।"
-          );
-
-          window.location.href =
-            "../index.html";
-
-          return;
-        }
-
-
-        // Admin information
-
-        const name =
-          currentAdmin.name ||
-          currentAdmin.displayName ||
-          user.displayName ||
-          "Admin";
-
-
-        adminName.textContent =
-          name;
-
-        adminEmail.textContent =
-          user.email || "-";
-
-
-        adminAvatar.textContent =
-          name
-            .trim()
-            .charAt(0)
-            .toUpperCase() || "A";
-
-
-        adminInfo.style.display =
-          "flex";
-
-
-        await loadDashboard();
-
-
-        loading.style.display =
-          "none";
-
-        dashboard.style.display =
-          "block";
-
-      }
-
-      catch (error) {
-
-        console.error(error);
-
-        loading.innerHTML = `
-          <div class="error">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-            <br><br>
-            Admin Dashboard লোড করা যায়নি।
-            <br>
-            Firebase Rules এবং Admin role পরীক্ষা করুন।
-          </div>
-        `;
-
-      }
-
-    }
-  );
-
-
-
-  // =====================================================
-  // LOAD DASHBOARD
-  // =====================================================
-
-  async function loadDashboard() {
-
-    // -----------------------------------------------------
-    // VIDEOS
-    // -----------------------------------------------------
-
-    const videosSnapshot =
-      await getDocs(
-        collection(db, "videos")
-      );
-
-
-    let total = 0;
-    let published = 0;
-    let pending = 0;
-
-
-    const videos = [];
-
-
-    videosSnapshot.forEach(
-      (docSnap) => {
-
-        const data =
-          docSnap.data();
-
-
-        total++;
-
-
-        if (
-          data.status ===
-          "published"
-        ) {
-
-          published++;
-
-        }
-
-
-        if (
-          data.status ===
-          "pending"
-        ) {
-
-          pending++;
-
-        }
-
-
-        videos.push({
-          id: docSnap.id,
-          ...data
-        });
-
-      }
-    );
-
-
-    totalVideos.textContent =
-      total;
-
-    publishedVideos.textContent =
-      published;
-
-    pendingVideos.textContent =
-      pending;
-
-
-
-    // -----------------------------------------------------
-    // USERS
-    // -----------------------------------------------------
+    videoGrid.innerHTML = `
+      <div class="loading">
+        ⏳ ভিডিও লোড হচ্ছে...
+      </div>
+    `;
 
     try {
 
-      const usersSnapshot =
-        await getDocs(
-          collection(db, "users")
-        );
+      const videosRef =
+        collection(db, "videos");
 
-      totalUsers.textContent =
-        usersSnapshot.size;
+      const q = query(
+        videosRef,
+        where("status", "==", "published"),
+        orderBy("createdAt", "desc"),
+        limit(50)
+      );
 
-    }
+      const snapshot =
+        await getDocs(q);
 
-    catch (error) {
+      allVideos = [];
+
+      snapshot.forEach(docSnap => {
+
+        allVideos.push({
+          id: docSnap.id,
+          ...docSnap.data()
+        });
+
+      });
+
+      renderVideos();
+
+    } catch (error) {
 
       console.error(
-        "Users loading error:",
+        "Video loading error:",
         error
       );
 
-      totalUsers.textContent =
-        "—";
+      /*
+       Firebase index না থাকলে সাধারণত
+       console-এ একটি index creation link
+       দেখাবে।
+      */
 
+      videoGrid.innerHTML = `
+        <div class="error">
+
+          ❌ ভিডিও লোড করা যায়নি।
+
+          <br><br>
+
+          Firebase Console-এর Firestore
+          Index / Rules এবং Internet Connection
+          পরীক্ষা করুন।
+
+        </div>
+      `;
     }
-
-
-
-    // -----------------------------------------------------
-    // RECENT VIDEOS
-    // -----------------------------------------------------
-
-    videos.sort(
-      (a, b) => {
-
-        const aTime =
-          a.createdAt?.seconds || 0;
-
-        const bTime =
-          b.createdAt?.seconds || 0;
-
-        return bTime - aTime;
-
-      }
-    );
-
-
-    renderVideos(
-      videos.slice(0, 10)
-    );
 
   }
 
 
-
-  // =====================================================
+  // ========================================
   // RENDER VIDEOS
-  // =====================================================
+  // ========================================
 
-  function renderVideos(videos) {
+  function renderVideos() {
 
-    if (!videos.length) {
+    const keyword =
+      searchInput.value
+        .trim()
+        .toLowerCase();
 
-      videoList.innerHTML = `
-        <div class="loading">
-          <i class="fa-solid fa-video-slash"></i>
+
+    const filtered =
+      allVideos.filter(video => {
+
+        const title =
+          String(video.title || "")
+            .toLowerCase();
+
+        const category =
+          String(video.category || "")
+            .toLowerCase();
+
+
+        const categoryMatch =
+          selectedCategory === "all" ||
+          category ===
+          selectedCategory.toLowerCase();
+
+
+        const searchMatch =
+          !keyword ||
+          title.includes(keyword) ||
+          category.includes(keyword);
+
+
+        return categoryMatch &&
+               searchMatch;
+
+      });
+
+
+    if (!filtered.length) {
+
+      videoGrid.innerHTML = `
+        <div class="empty">
+
+          🎬 কোনো Published Video পাওয়া যায়নি।
+
           <br>
-          এখনো কোনো ভিডিও নেই।
+
+          পরে আবার চেষ্টা করুন।
+
         </div>
       `;
 
@@ -1155,181 +768,135 @@
     }
 
 
-    videoList.innerHTML =
-      videos.map(
-        (video) => {
+    videoGrid.innerHTML =
+      filtered.map(video => {
 
-          const status =
-            video.status ||
-            "unknown";
+        const title =
+          escapeHtml(video.title || "Untitled Video");
 
+        const category =
+          escapeHtml(video.category || "Video");
 
-          let statusClass =
-            "status-other";
+        const thumbnail =
+          escapeHtml(
+            video.thumbnail ||
+            "https://via.placeholder.com/640x360?text=RATER+TARA"
+          );
 
-
-          if (
-            status ===
-            "published"
-          ) {
-
-            statusClass =
-              "status-published";
-
-          }
-          else if (
-            status ===
-            "pending"
-          ) {
-
-            statusClass =
-              "status-pending";
-
-          }
-          else if (
-            status ===
-            "rejected"
-          ) {
-
-            statusClass =
-              "status-rejected";
-
-          }
+        const views =
+          Number(video.views || 0);
 
 
-          return `
-            <div class="video-row">
+        return `
 
-              <div class="video-thumb">
+          <a
+            href="./player.html?id=${encodeURIComponent(video.id)}"
+            class="video-card">
 
-                <img
-                  src="${escapeHtml(
-                    video.thumbnail ||
-                    "https://via.placeholder.com/320x180/002e2e/00ffff?text=Rater+Tara"
-                  )}"
-                  alt="Video">
+            <div class="thumb-wrap">
 
+              <img
+                src="${thumbnail}"
+                alt="${title}"
+                loading="lazy"
+                onerror="
+                  this.src='https://via.placeholder.com/640x360?text=RATER+TARA'
+                "
+              >
+
+              <div class="play">
+                ▶
               </div>
 
+            </div>
 
-              <div class="video-details">
+            <div class="video-info">
 
-                <div class="video-title">
-                  ${escapeHtml(
-                    video.title ||
-                    "Untitled Video"
-                  )}
-                </div>
+              <h4 class="video-title">
+                ${title}
+              </h4>
 
-                <div class="video-meta">
+              <div class="video-meta">
 
-                  ${escapeHtml(
-                    video.category ||
-                    "General"
-                  )}
+                <span>
+                  ${category}
+                </span>
 
-                  •
-
-                  ${Number(
-                    video.views || 0
-                  )} views
-
-                </div>
-
-              </div>
-
-
-              <div
-                class="status ${statusClass}">
-
-                ${escapeHtml(
-                  status.toUpperCase()
-                )}
+                <span>
+                  👁 ${views}
+                </span>
 
               </div>
 
             </div>
-          `;
 
-        }
-      ).join("");
+          </a>
+
+        `;
+
+      }).join("");
 
   }
 
 
+  // ========================================
+  // SEARCH
+  // ========================================
 
-  // =====================================================
+  searchInput.addEventListener(
+    "input",
+    renderVideos
+  );
+
+
+  // ========================================
+  // CATEGORY
+  // ========================================
+
+  categoryButtons.forEach(button => {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        categoryButtons.forEach(btn => {
+          btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        selectedCategory =
+          button.dataset.category;
+
+        renderVideos();
+
+      }
+    );
+
+  });
+
+
+  // ========================================
   // HTML ESCAPE
-  // =====================================================
+  // ========================================
 
   function escapeHtml(value) {
 
     return String(value)
-      .replace(
-        /&/g,
-        "&amp;"
-      )
-      .replace(
-        /</g,
-        "&lt;"
-      )
-      .replace(
-        />/g,
-        "&gt;"
-      )
-      .replace(
-        /"/g,
-        "&quot;"
-      )
-      .replace(
-        /'/g,
-        "&#039;"
-      );
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
 
   }
 
 
+  // ========================================
+  // START
+  // ========================================
 
-  // =====================================================
-  // LOGOUT
-  // =====================================================
-
-  logoutBtn.addEventListener(
-    "click",
-    async () => {
-
-      const confirmLogout =
-        confirm(
-          "আপনি কি Admin Logout করতে চান?"
-        );
-
-
-      if (!confirmLogout) {
-        return;
-      }
-
-
-      try {
-
-        await signOut(auth);
-
-        window.location.href =
-          "login.html";
-
-      }
-
-      catch (error) {
-
-        console.error(error);
-
-        alert(
-          "Logout করা যায়নি।"
-        );
-
-      }
-
-    }
-  );
+  loadVideos();
 
 </script>
 
